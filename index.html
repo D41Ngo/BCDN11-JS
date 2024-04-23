@@ -1,11 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- 1 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javascript</title>
+    <!-- 2 -->
+
 </head>
+
 <body>
+    <!-- 3 -->
     <h1>Hello world</h1>
+    <!-- 4 -->
+
+    <script>
+        // Tương tác với file html, để đợi file html load xong hết giao diện.
+        // Có thể sử dụng nhiều thẻ script
+        // Output
+        // F12 | chuột phải inspect
+        console.log("Hello World");
+        console.log("Ngô Tấn Đại");
+
+        // console.log: câu lệnh in ra màn hình ở tab console
+        // ;: dùng để kết thúc câu lệnh
+        // comment: thì trình duyệt sẽ bỏ qua không thực hiện câu lệnh
+        /**
+         * comment nhiều dòng
+        */
+
+        //** Khai báo biến (variable)
+        console.log("Ngô Tấn C");
+        console.log("Ngô Tấn C");
+        console.log("Ngô Tấn C");
+
+        // Cú pháp khai báo biến (syntax)
+
+        var fullName; // Khai báo một biến có tên là fullName
+        console.log(fullName); // ???? - undefined: mơ hồ không biết là cái gì.
+
+        fullName = "Ngô Tấn CCCC"; // Gán giá trị cho biến fullName
+
+        console.log(fullName);
+        console.log(fullName);
+        console.log(fullName);
+
+        // Vừa khai báo biến + gán giá trị
+        var name = 'BBBBB'; // Khai báo biến name và gán giá trị khởi tạo cho nó là "BBBBB"
+
+        //** Kiểu dữ liệu (Type) : Giá trị của kiểu dữ liệu (Value)
+        // String : "Nguyễn Văn A", 'B', "34fasdf54", "3241fasdfa2341234"
+        // Number : 30, 40, 1, 2, 3, 4
+        // Boolean:
+
+
+        // ** Quy ước khi đặt tên biến
+        // camelCase: Sử dụng nhiều nhất trong JS
+        // snake_case: full_name
+        // IN_HOA: MOT_NAM_CO_BAO_NHIEU_THANG; Biến hằng số, không bao giờ thay đổi,...
+
+        // Tránh một số tình huống như bên dưới.
+
+        // var 2name; ❌
+        // var full name; ❌
+        // var var = 10; ❌
+        // var if = 10; ❌
+        // var else = 10; ❌
+        // var for = 10; ❌
+        // var full-name; ❌
+
+        // ------------------------------------
+        // ** Kiểu dữ liệu Number
+        // 2024:
+        var age = 30; // tạo biến age có kiểu dữ liệu là Number;
+        console.log('[1]', age);
+        // 2025:
+        age = 31; // Phép gán lại giá trị cho biến age;
+        console.log('[2]', age);
+        // 2026:
+        age = 32; // Gán lại giá trị của biến age; Gán bao nhiêu lần cũng được
+        console.log('[3]', age);
+        // 2027:
+        age = 33;
+        console.log('[4]', age);
+
+
+        // ** Gán giá trị của biến age cho biến age2.
+        var age2 = age;
+
+
+
+    </script>
+
+    <script src="./src/buoi-1/index.js">
+        // Tương tác với file html, để đợi file html load xong hết giao diện.
+    </script>
+
 </body>
+
 </html>
