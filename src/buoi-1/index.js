@@ -100,8 +100,7 @@ console.log("haha" + " " + "hihi");
 
 // 438
 // 43521
-console.log(4 + '3' + 5 + 2 + 1); // ??? 43521
-
+console.log(4 + "3" + 5 + 2 + 1); // ??? 43521
 
 // ** Kiểm tra kiểu dữ liệu: typeof
 
@@ -115,14 +114,14 @@ var strNum = "3";
 var num = Number(strNum);
 var strNum2 = String(num);
 
-console.log('typeof strNum :::',typeof strNum);
-console.log('typeof num :::', typeof num);
-console.log('typeof strNum2 :::', typeof strNum2);
+console.log("typeof strNum :::", typeof strNum);
+console.log("typeof num :::", typeof num);
+console.log("typeof strNum2 :::", typeof strNum2);
 
-
-console.log(4 + '3' + 5 + 2 + 1); // ??? 43521
+console.log(4 + "3" + 5 + 2 + 1); // ??? 43521
 // 4 + '3' => String(4) + '3' => '43'
 // '43' + 5 => '43' + String(5) => '435'
 // '435' + 2 => '435' + String(2) => '4352'
 // '4352' + 1 => '4352' + String(1) => '43521'
+
 
