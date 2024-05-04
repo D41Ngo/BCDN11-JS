@@ -160,12 +160,13 @@ function aaa() {
   console.log(count2); // 1. 10
 }
 
+
+
 // aaa();
 
 // console.log(count2); // 2. 20 | undefined
 
 // ------------------
-
 function concatString(str1, str2) {
   var result = str1 + "-----" + str2;
 
@@ -177,3 +178,4 @@ var count3 = 30;
 var str = concatString('Hello', 'World');
 
 console.log(str);
+
