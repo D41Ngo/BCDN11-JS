@@ -233,3 +233,156 @@ document.getElementById("bt-2").onclick = function () {
   // 6.
   document.getElementById("hoc-luc").innerHTML = "Học " + hocLuc;
 };
+
+// ---------------------------
+
+// var number10 = 10;
+// var loai = "";
+
+// if (number10 % 2 == 0) {
+//   loai = "Chan";
+// } else {
+//   loai = "Le";
+// }
+
+// console.log("**** So " + number10 + " " + loai);
+
+// Toán tử ba ngôi (ternary): <dieu_kien> ? neu_dk_dung_lay_gia_tri_nay : neu_dk_sai_lay_gia_tri_nay
+// Thường sử dụng khi mà kiểm tra 1-2 điều kiện.
+
+var number10 = 10;
+var loai = number10 % 2 == 0 ? "Chan" : "Le";
+
+console.log("**** So " + number10 + " " + loai);
+
+// --------------------------
+var bit = 1;
+
+// var bongDen = "";
+// if (bit == 1) {
+//   bongDen = "Bat";
+// } else {
+//   bongDen = "Tat";
+// }
+
+var bongDen = bit == 1 ? "Bat" : "Tat";
+// -------------------------
+
+var thang = 1; // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+
+/**
+ * thang == 1 => in ra màn hình là tháng một
+ */
+
+// alert('Tháng không hợp lệ, Yêu cầu nhập lại')
+
+// 1. Gắn hàm cho element trigger làm thay đổi giao diện
+function inThang() {
+  console.log(".......");
+  // 2. Kiểm tra giá trị người dùng nhập vào có hợp lệ hay không.
+  // 3. Kiểm tra input người dùng nhập nhập vào là tháng bao nhiêu (một, hai, ba).
+  // 4. In ra màn hình.
+
+  // 2.
+  // lấy element
+  var thangEle = document.getElementById("thang");
+  // lấy giá trị
+  var thangValue = thangEle.value; // String
+  // ép kiểu: convert 12.4 -> 12, 12.6 -> 12: làm tròn tháng người dùng nhập vào.
+  var thangNum = Math.floor(Number(thangValue)); // Number;
+
+  // 3.
+  /**
+   * [TEST]
+   * 1. 0, -1, -2
+   * 2. 1, 2, 3, 12.4, 3.5
+   * 3. 13, 14, 15
+   */
+  if (thangNum <= 0 || thangNum > 12) {
+    alert("Tháng không hợp lệ, Yêu cầu nhập lại");
+  } else {
+    debugger;
+    // if (thangNum == 1) {
+    //   var result = "Tháng Một";
+    //   console.log(result);
+    // }
+
+    // if (thangNum == 2) {
+    //   var result = "Tháng Hai";
+    //   console.log(result);
+    // }
+
+    // if (thangNum == 3) {
+    //   var result = "Tháng Ba";
+    //   console.log(result);
+    // }
+
+    // // --------------
+
+    // if (thangNum == 1) {
+    //   var result = "Tháng Một";
+    //   console.log(result);
+    // } else {
+
+
+    //   if (thangNum == 2) {
+    //     var result = "Tháng Hai";
+    //     console.log(result);
+    //   } else {
+    //     if (thangNum == 3) {
+    //       var result = "Tháng Ba";
+    //       console.log(result);
+    //     } else {
+    //       if (thangNum == 4) {
+    //         var result = "Tháng Bốn";
+    //         console.log(result);
+    //       }
+    //     }
+    //   }
+    // }
+
+    //
+
+    // break: dừng lại không làm tiếp tục.
+    // vòng lặp.
+
+    // thangNum 
+    // 1, 2, 3, 6
+    switch(thangNum){
+      case 1: { // thangNum == 1
+        var result = "Tháng Một";
+        console.log(result);
+
+        break;
+      }
+      case 2: { // thangNum == 2
+        var result = "Tháng Hai";
+        console.log(result);
+
+        break;
+      }
+      case 3: {
+        var result = "Tháng Ba";
+        console.log(result);
+
+        break;
+      }
+
+      default: {
+        console.log("Thang :::", thangNum)
+      }
+    }
+  }
+}
+
+document.getElementById("in").onclick = inThang;
+
+/**
+ * switch                   |                   if else
+ * 
+ * so sánh giá trị          |               Khoảng giá trị
+ * bằng nhau
+ * 
+ */
+
+
