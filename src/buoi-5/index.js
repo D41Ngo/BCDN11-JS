@@ -259,6 +259,26 @@ for (var i = 0; i < 10; i++) {
 function abc() {
   console.log(1);
   return 3;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   console.log(2);
 }
 
