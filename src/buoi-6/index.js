@@ -280,15 +280,15 @@ var object3 = {
 // var object4 = Object.assign({}, object3, { a: 20 });
 var object4 = {
   ...object3, // spread
-
   // a: 10,
   // b: 3333,
   // c: 1000,
   // d: 1000000,
 
+
   a: 20,
 };
 
-console.log(object4)
+console.log(object4);
 console.log(object4 === object3);
-console.log(object3)
+console.log(object3);
