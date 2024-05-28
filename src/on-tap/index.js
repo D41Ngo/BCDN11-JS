@@ -41,14 +41,14 @@ console.log(ch1_b1 == ch1_b2);
 
 //===========================
 var ch1_b3 = true;
-var ch1_b4 = !ch1_b3;
+var ch1_b4 = !!ch1_b3;
 console.log(ch1_b4);
 
 //===========================
 console.log(true && true && false);
 console.log(true && true && true);
-console.log((true && true) || true);
-console.log((true && true) || false);
+console.log(true && (true || true));
+console.log(true && (true || false));
 console.log(true || (true && false));
 console.log(true || (true && true));
 
@@ -73,15 +73,6 @@ console.log(ch1_obj5); // ???
 console.log(ch1_obj4 == ch1_obj5);
 
 //===========================
-var ch1_obj5 = {};
-var ch1_obj6 = { ...ch1_obj4 };
-
-ch1_obj4.age = 20;
-console.log(ch1_obj4); // ???
-console.log(ch1_obj5); // ???
-console.log(ch1_obj4 == ch1_obj5); // ???
-
-//===========================
 var ch1_obj7 = {};
 var ch1_obj8 = ch1_obj7;
 
@@ -97,6 +88,13 @@ var ch1_o9 = {
 };
 var ch1_o10 = {
   age: 21,
+  age: 20,
+  age: 20,
+  age: 20,
+  age: 20,
+  age: 20,
+  age: 20,
+  age: 100,
   ...ch1_o9,
   ...ch1_o9,
 };
@@ -172,7 +170,7 @@ function c() {
 function d() {
   console.log(9);
 }
-
+a();
 //===========================
 var num = 10;
 function calcSum(a, b) {
@@ -180,13 +178,13 @@ function calcSum(a, b) {
 }
 
 var ch2_r1 = calcSum(num, num, num);
-console.log(ch2_r1);
+console.log(ch2_r1); //???
 var ch2_r2 = calcSum(3, 5, 20);
-console.log(ch2_r2);
+console.log(ch2_r2); //???
 
 num = 11;
 var ch2_r3 = calcSum(4, 6, 21);
-console.log(ch2_r3);
+console.log(ch2_r3); //???
 
 //===========================
 function calcSum2(num) {
@@ -201,21 +199,41 @@ function calcSum2(num) {
 }
 
 var ch2_r4 = calcSum2(10);
-console.log(ch2_r4);
 var ch2_r5 = calcSum2(4);
-console.log(ch2_r5);
 
+console.log(ch2_r4);
+console.log(ch2_r5);
 console.log(calcSum2(20));
 console.log(calcSum2(3));
 
 //===========================
 var aaa = 10;
-function printB(){
-  console.log(aaa);
-}
-function printA(){
+
+function printA() {
   var aaa = 20;
+  function printB() {
+    console.log(aaa); // 1. 10
+  }
+
   printB();
-  console.log(aaa);
+
+  console.log(aaa); // 2. 20
 }
 printA();
+
+//===========================
+var age = 20;
+
+var age_2 = age;
+
+console.log(age_2);
+
+function change(obj) {
+  // var obj = Ox1231233423;
+  obj.age = 20;
+}
+
+var obj = {};
+// change(Ox1231233423);
+
+console.log(obj); // ???

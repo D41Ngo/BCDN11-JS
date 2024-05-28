@@ -87,7 +87,23 @@ class FakeArray {
 
     for (var i = 0; i <= this.arr.length - 1; i++) {
       var item = fn(this.arr[i], i);
+
+
       newArr.push(item);
+    }
+
+    return newArr;
+  }
+
+  filter(fn) {
+    var newArr = [];
+
+    for (var i = 0; i <= this.arr.length - 1; i++) {
+      var item = fn(this.arr[i], i);
+
+      if(item){
+        newArr.push(item);
+      }
     }
 
     return newArr;
