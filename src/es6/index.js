@@ -1,160 +1,133 @@
-// 'use strict'
-// 1.
-// hoisting.
-var var1;
+const product_2 = {
+  id: 1,
 
-console.log(var1);
-var var1 = 10;
-var var1 = 10;
+  name: "sam sung",
+  price: 10,
 
-// console.log(var2); ❌
-let var2 = 20;
-var2 = 30;
-var2 = 40;
-console.log(var2);
-// let var2 = 20; ❌
-
-const var3 = 40;
-// var3 = 50;
-
-console.log(var3);
-
-/**
- * local
- * global
- * block
- */
-
-var a = 10;
-
-if (3 < 5) {
-  var a = 20;
-}
-
-console.log(a);
-
-let b = 10;
-
-if (3 < 5) {
-  let b = 20;
-}
-
-console.log("b", b);
-
-// 2.
-
-// function a() {}
-// var a = function () {};
-
-let aa = () => {
-  console.log("aaaa");
+  rom: "256G",
+  ram: "8G",
 };
 
-const bReturn = () => 10;
+const { id: id_2, rom: ROM, ram, ...other_2 } = product_2;
+// console.log(id);  //1 ❌
+// console.log(id_2); //2 -> 1
+// console.log(rom); //3 ❌
+// console.log(ROM); //4 -> "256G"
+// console.log(ram); //5 -> "8G"
+// console.log(RAM); //6 ❌
+// console.log(other_2); //7 {  name: "sam sung", price: 10 }
 
-var result_1 = bReturn();
-console.log(result_1); // 1. 10
+// ---------------------------
 
-var result_2 = aa();
-console.log(result_2); // 2. undefined
+const arr = ["name", "age", "price", "rom", "ram"];
+const obj = {};
 
-const obj1 = {
-  age: 20,
-};
-
-let obj2 = {
-  age: 40,
-};
-
-obj1.age = 30; // ok
-obj1.name = "haha";
-
-obj2.age = 50; // ok
-
-//
-
-let getInfo = (age, name = "Mị") => {
-  // Nếu người dùng không truyền tham số thứ 2 thì mặc định nó sẽ là mịs
-  //   if (!name) name = "Mị";
-
-  if (age > 0 && age < 30) {
-    console.log(`${name} còn trẻ ${name} muốn đi chơi.`);
-  }
-};
-
-getInfo(18, "Huy");
-getInfo(20);
-
-// let getInfo2 = (name = "Mị", age) => {
-//   // Nếu người dùng không truyền tham số thứ 2 thì mặc định nó sẽ là mịs
-//   //   if (!name) name = "Mị";
-
-//   if (age > 0 && age < 30) {
-//     console.log(`${name} còn trẻ ${name} muốn đi chơi.`);
-//   }
-// };
-
-// getInfo2(, 18);
-
-let calcTotalNum = (...rest) => {};
-
-// calcTotalNum(1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 0); // a? 1 rest? [2, 3, 4, 5, 6, 7, 8, 9, 9, 0]
-// calcTotalNum(1, 2, 3, 4, 5, 6); // a? 1 rest? [ 2, 3, 4, 5, 6]
-calcTotalNum(1, 2); // a,b,c, rest
-calcTotalNum(1); // a,b,c, rest
-calcTotalNum(1, undefined); // a,b,c, rest
-
-function abc(a, b, c, d, e) {}
-[1, 2, 3].forEach((...rest) => {
-  //   [1, 2, 3, 4, 5];
-  // ...[1, 2, 3, 4, 5]
-  //   abc(1, 2, 3, 4, 5);
-  abc(...rest);
+arr.forEach((item, index) => {
+  obj[item] = index;
 });
 
-// 7. Destructuring.
+console.log(obj); // ???
+/**
+ *
+ */
 
-const product = {
-  price: 10,
-  name: "Nokia",
-  id: "adsifhaisdfhasiof234j2424",
-  a: 10,
-  b: 10,
-  c: 10,
-  size: {
-    width: 10,
-    height: 10,
-  },
+// -------------------------
+// Closure: Khi tạo ra một function thì nó sẽ nhớ phạm vi nó được tạo ra có những biến và giá trị gì.
+
+// Curry function
+const increment = () => {
+  let value = 0;
+  let id = 1;
+
+  return () => {
+    const cpValue = value;
+    value++;
+    return cpValue;
+  };
 };
 
-const {
-  name,
-  price,
-  id: ID,
-  size: { width, height },
-  ...other
-} = product;
-console.log("other", other);
-// const price = product.price;
-// const name = product.name;
-// const ID = product.id;
-// const width = product.size.width
-// const height = product.size.height
+const manage = () => {
+  let id = 0;
 
-console.log(`price: ${price}`);
-console.log(`name: ${name}`);
-console.log(`id: ${ID}`);
+  const createTodo = (name) => {
+    return {
+      id: id++,
+      name,
+      status: "in-progress",
+    };
+  };
 
-const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-const [num1, , num3, ...numbers] = arr;
-// const num1 = arr[0]
-// const num2 = arr[1]
-
-console.log(numbers);
-
-const userName = "user-name";
-
-const obj_3 = {
-  [userName]: "Nguyen Van A",
+  return createTodo;
 };
+
+const createTodo = manage();
+
+manage()("JS"); //??? {id: 0}
+manage()("HTML"); //??? {id: 0}
+manage()("CSS"); //??? {id: 0}
+
+createTodo("js"); // 1. {id: 0}
+createTodo("html"); // 2. {id: 1}
+createTodo("css"); // 3. {id: 2}
+
+console.log(manage() === manage()); // true ? false
+
+// console.log(increment()); // ??? function
+
+const inc = increment();
+
+console.log(inc()); // 1.??? 0 0 undefined 0
+console.log(inc()); // 2.??? 1 0 undefined 0
+console.log(inc()); // 3.??? 2 0 undefined 0
+console.log(inc()); // 3.??? 2 0 undefined 0
+console.log(inc()); // 3.??? 2 0 undefined 0
+console.log(inc()); // 3.??? 2 0 undefined 0
+console.log(inc()); // 3.??? 2 0 undefined 0
+console.log(inc()); // 3.??? 2 0 undefined 0
+
+// IIFE
+function IIFE(fn) {
+  return fn();
+}
+
+const handle = () => {
+  return 20;
+};
+
+let a = IIFE(handle); // 20
+
+(() => {
+  console.log("aaaa");
+})();
+const number = 5;
+
+// const type = number % 2 === 0 ? "chan" : "le";
+
+// let type;
+
+// if (number % 2 === 0) {
+//   type ="Chan";
+// } else {
+//   type ="Le";
+// }
+
+let type = IIFE(() => {
+  if (number % 2 === 0) {
+    return "Chan";
+  } else {
+    return "Le";
+  }
+});
+
+console.log('🚀 >>>::::::::: arr :::::::::', );
+// for of: duyệt mảng.
+for (let item of arr) {
+  console.log(item);
+}
+
+// for in: duyệt qua từng key của object
+console.log('🚀 >>>::::::::: object :::::::::', );
+for (let key in product_2) {
+  console.log(key);
+}
+

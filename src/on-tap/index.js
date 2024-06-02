@@ -209,11 +209,13 @@ console.log(calcSum2(3));
 //===========================
 var aaa = 10;
 
+function printB() {
+  console.log(aaa); // 1. 10
+}
+
+
 function printA() {
   var aaa = 20;
-  function printB() {
-    console.log(aaa); // 1. 10
-  }
 
   printB();
 
