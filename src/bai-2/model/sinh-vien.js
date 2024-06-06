@@ -12,14 +12,16 @@ export class SinhVien {
     diemHoa
   ) {
     this.msv = msv;
-    this.ten = ten;
+    this.name = ten;
     this.email = email;
-    this.matKhau = matKhau;
-    this.ngaySinh = ngaySinh;
-    this.khoaHoc = khoaHoc;
-    this.diemToan = diemToan;
-    this.diemLy = diemLy;
-    this.diemHoa = diemHoa;
+    this.password = matKhau;
+    this.birthday = ngaySinh;
+    this.course = khoaHoc;
+    this.math = diemToan;
+    this.physic = diemLy;
+
+    // @test
+    this.chemistry = diemHoa;
   }
 
   tinhDiemTB() {
