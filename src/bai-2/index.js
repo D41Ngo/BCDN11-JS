@@ -1,5 +1,10 @@
 import { SinhVien } from "./model/sinh-vien.js";
-import { createSinhVien, renderTableSinhVien } from "./manage-sinh-vien.js";
+import {
+  createSinhVien,
+  isEdit,
+  renderTableSinhVien,
+  updateSinhVien,
+} from "./manage-sinh-vien.js";
 function layThongTinSinhVien() {
   // return new SinhVien(msv, ten, email)
 }
@@ -41,14 +46,6 @@ formEle.onsubmit = (event) => {
     "#formQLSV input, #formQLSV select"
   );
 
-  const arrEle = Array.from(listEle);
-
-  // const arrSinhVien = arrEle.map((ele) => {
-  //   return ele.value;
-  // });
-
-  // console.log(arrSinhVien);
-
   const sv = {};
 
   listEle.forEach((ele) => {
@@ -65,12 +62,16 @@ formEle.onsubmit = (event) => {
     sv.txtPass,
     sv.txtNgaySinh,
     sv.khSV,
-    sv.txtDiemToan,
-    sv.txtDiemLy,
-    sv.txtDiemHoa
+    Number(sv.txtDiemToan),
+    +sv.txtDiemLy,
+    +sv.txtDiemHoa
   );
 
-  createSinhVien(newSinhVien);
+  if (isEdit) {
+    updateSinhVien(newSinhVien);
+  } else {
+    createSinhVien(newSinhVien);
+  }
 
   // ❌: Có thể bị lỗi.
   // new SinhVien(...sv);
