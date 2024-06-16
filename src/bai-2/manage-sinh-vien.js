@@ -88,7 +88,7 @@ export const createSinhVien = (sv) => {
   console.log(3);
 };
 
-const mapper = {
+export const mapper = {
   txtMaSV: "msv",
   txtTenSV: "name",
   txtEmail: "email",

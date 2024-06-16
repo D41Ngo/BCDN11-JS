@@ -28,7 +28,7 @@
                         <div class="col-6 form-group">
                             <label for="">Mã Sinh Viên : </label>
                             <input type="text" class="form-control" id="txtMaSV">
-                            <span id="spanMaSV" class="text-danger"></span>
+                            <span id="spanMaSV" class="text-danger">Bắt buộc nhập vào.</span>
                         </div>
 
                         <div class="col-6 form-group">
@@ -36,10 +36,6 @@
                             <input type="text" class="form-control" id="txtTenSV">
                             <span id="spanTenSV" class="text-danger"></span>
                         </div>
-
-
-
-
                     </div>
                     <div class="row">
                         <div class="col-6 form-group">
@@ -62,9 +58,9 @@
                         <div class="col-6 form-group">
                             <label for="">Khóa học: </label>
                             <select name="" id="khSV" class="form-control">
-                                <option>Chọn khóa học</option>
-                                <option>KH001</option>
-                                <option>KH002</option>
+                                <option value="">Chọn khóa học</option>
+                                <option value="KH001">KH001</option>
+                                <option value="KH002">KH002</option>
                             </select>
                             <span id="spanKhoaHoc" class="text-danger"></span>
                         </div>
@@ -92,7 +88,7 @@
 
                         <button type="reset" onclick="" class="btn btn-dark">Reset</button>
 
-                        <button type="button" class="btn btn-info">Cập Nhật</button>
+                        <button type="submit" class="btn btn-info">Cập Nhật</button>
                     </div>
                 </form>
                 <div class="row">
